@@ -1,26 +1,187 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-gold-400: #d4b05a;
+  --color-gold-500: #c9a84c;
+  --color-gold-600: #a8893a;
+  --color-forest-900: #080e0b;
+  --color-forest-800: #0d1a12;
+  --color-forest-700: #122019;
+  --color-forest-600: #1a3028;
+  --color-forest-500: #1e4030;
+  --color-forest-400: #2d5a3f;
+  --color-cream-100: #f5efe4;
+  --color-cream-200: #e8ddc8;
+  --color-cream-400: #b8a888;
+  --color-cream-600: #8a7a65;
+
+  --font-heading: var(--font-playfair);
+  --font-sans: var(--font-inter);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #080e0b;
+  color: #f5efe4;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-heading {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* Gold CTA button */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #c9a84c;
+  color: #080e0b;
+  font-weight: 700;
+  padding: 0.875rem 2rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-gold:hover {
+  background-color: #d4b05a;
+  transform: translateY(-1px);
+}
+
+.btn-gold:active {
+  transform: translateY(0);
+}
+
+/* WhatsApp green button */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background-color: #25d366;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-whatsapp:hover {
+  background-color: #20bd5a;
+  transform: translateY(-1px);
+}
+
+/* Outline button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: #c9a84c;
+  font-weight: 600;
+  padding: 0.875rem 2rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1.5px solid #c9a84c;
+}
+
+.btn-outline:hover {
+  background-color: #c9a84c;
+  color: #080e0b;
+}
+
+/* Card */
+.card-dark {
+  background-color: #0d1a12;
+  border: 1px solid #1e4030;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+/* Section padding */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Gold divider */
+.gold-divider {
+  width: 3rem;
+  height: 2px;
+  background-color: #c9a84c;
+  margin: 0 auto;
+}
+
+/* Price tag */
+.price-tag {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #c9a84c;
+  line-height: 1;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Image overlay gradient */
+.img-overlay {
+  background: linear-gradient(to bottom, transparent 30%, rgba(8, 14, 11, 0.95) 100%);
+}
+
+/* Sticky floating CTA */
+.floating-cta {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 50;
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
