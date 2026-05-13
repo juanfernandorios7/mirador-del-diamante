@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import type { Reserva } from "@/lib/supabase";
+import { trackPurchase } from "@/lib/pixel";
 
 const servicioOptions = [
   { value: "glamping", label: "Glamping" },
@@ -78,15 +79,7 @@ export default function RegistrarReservaPage() {
 
       if (dbError) throw dbError;
 
-      // Meta Pixel — Purchase event
-      if (typeof window !== "undefined" && (window as any).fbq) {
-        (window as any).fbq("track", "Purchase", {
-          currency: "COP",
-          value: form.precio,
-          content_name: form.plan,
-          content_category: form.servicio,
-        });
-      }
+      trackPurchase(form.precio, form.plan, form.servicio);
 
       router.push("/gracias");
     } catch (err: any) {
