@@ -24,6 +24,11 @@ export const metadata: Metadata = {
     title: "Mirador del Diamante | Glamping & Camping",
     description: "Vive una experiencia única en la naturaleza. Glamping de lujo y camping plan pareja en Girardota, Antioquia.",
     type: "website",
+    images: [{ url: "/hero.jpg", width: 1200, height: 630, alt: "Mirador del Diamante — Glamping & Camping en Girardota" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/hero.jpg"],
   },
 };
 

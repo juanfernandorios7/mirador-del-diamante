@@ -14,6 +14,7 @@
   --color-cream-200: #e8ddc8;
   --color-cream-400: #b8a888;
   --color-cream-600: #8a7a65;
+  --color-forest-950: #060c09;
 
   --font-heading: var(--font-playfair);
   --font-sans: var(--font-inter);
@@ -137,6 +138,13 @@ body {
     padding-bottom: 6rem;
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
 }
 
