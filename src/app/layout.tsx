@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="es" data-scroll-behavior="smooth" className={`${playfair.variable} ${inter.variable}`}>
       <head>
         {/* Meta Pixel - reemplazar PIXEL_ID con el ID real */}
         <Script id="meta-pixel" strategy="afterInteractive">

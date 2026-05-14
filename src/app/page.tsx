@@ -35,7 +35,7 @@ export default function Home() {
             Reservar ahora
           </a>
         </div>
-        <a href={WHATSAPP_GENERAL_URL} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm px-4 py-2 md:hidden">
+        <a href={WHATSAPP_GENERAL_URL} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm px-4 py-3 md:hidden">
           Reservar
         </a>
       </nav>
@@ -43,7 +43,7 @@ export default function Home() {
       {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-forest-900 via-forest-800 to-forest-700" />
-        <div className="absolute inset-0 bg-[url('/hero.jpg')] bg-cover bg-center opacity-40" />
+        <Image src="/hero.jpg" alt="Vista panorámica de Mirador del Diamante, Girardota" fill priority className="object-cover opacity-40" sizes="100vw" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #080e0b 0%, rgba(8,14,11,0.4) 50%, transparent 100%)" }} />
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
@@ -110,12 +110,9 @@ export default function Home() {
             { label: "Zonas verdes", span: "", height: "min-h-[180px]", img: "/zona-5.jpg" },
           ].map((item, i) => (
             <div key={i} className={`card-dark relative overflow-hidden ${item.span} ${item.height}`}>
-              <div className="absolute inset-0 bg-gradient-to-br from-forest-700 to-forest-900" />
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-50"
-                style={{ backgroundImage: `url('${item.img}')` }}
-              />
-              <div className="absolute bottom-0 left-0 right-0 p-4" style={{ background: "linear-gradient(to top, rgba(8,14,11,0.9), transparent)" }}>
+              <div className="absolute inset-0 bg-forest-900" />
+              <Image src={item.img} alt={item.label} fill className="object-cover opacity-70" sizes={i === 0 ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 50vw, 33vw"} loading="lazy" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 z-10" style={{ background: "linear-gradient(to top, rgba(8,14,11,0.9), transparent)" }}>
                 <span className="text-cream-200 text-sm font-medium">{item.label}</span>
               </div>
             </div>
@@ -161,11 +158,8 @@ export default function Home() {
           {/* GLAMPING */}
           <div className="card-dark group hover:border-gold-500/50 transition-all duration-300 flex flex-col">
             <div className="relative h-64 overflow-hidden bg-forest-700 flex items-center justify-center">
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-65 group-hover:scale-105 transition-all duration-500"
-                style={{ backgroundImage: "url('/glamping-cover.jpg')" }}
-              />
-              <div className="absolute top-4 left-4">
+              <Image src="/glamping-cover.jpg" alt="Glamping de lujo Mirador del Diamante" fill className="object-cover opacity-65 group-hover:opacity-80 group-hover:scale-105 transition-all duration-500" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" />
+              <div className="absolute top-4 left-4 z-10">
                 <span className="bg-gold-500 text-forest-900 text-xs font-bold px-3 py-1 rounded-full tracking-wide">
                   PREMIUM
                 </span>
@@ -192,12 +186,9 @@ export default function Home() {
           {/* CAMPING */}
           <div className="card-dark group hover:border-gold-500/50 transition-all duration-300 flex flex-col">
             <div className="relative h-64 overflow-hidden bg-forest-600 flex items-center justify-center">
-              <div
-                className="absolute inset-0 bg-cover bg-center opacity-50 group-hover:opacity-65 group-hover:scale-105 transition-all duration-500"
-                style={{ backgroundImage: "url('/camping-cover.jpg')" }}
-              />
-              <div className="absolute top-4 left-4">
-                <span className="text-xs font-bold px-3 py-1 rounded-full tracking-wide text-cream-100" style={{ backgroundColor: "#2d5a3f" }}>
+              <Image src="/camping-cover.jpg" alt="Camping Plan Pareja Mirador del Diamante" fill className="object-cover opacity-65 group-hover:opacity-80 group-hover:scale-105 transition-all duration-500" sizes="(max-width: 768px) 100vw, 50vw" loading="lazy" />
+              <div className="absolute top-4 left-4 z-10">
+                <span className="text-xs font-bold px-3 py-1 rounded-full tracking-wide text-cream-100 bg-forest-400">
                   PLAN PAREJA
                 </span>
               </div>

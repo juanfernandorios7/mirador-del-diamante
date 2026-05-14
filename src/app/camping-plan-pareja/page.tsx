@@ -48,7 +48,7 @@ export default function CampingPlanPareja() {
       {/* HERO */}
       <section className="relative min-h-screen flex items-end justify-center overflow-hidden pb-16 md:pb-20">
         <div className="absolute inset-0 bg-gradient-to-br from-forest-900 via-forest-800 to-forest-600" />
-        <div className="absolute inset-0 bg-cover bg-center opacity-40" style={{ backgroundImage: "url('/camping-hero.jpg')" }} />
+        <Image src="/camping-hero.jpg" alt="Camping Plan Pareja en Girardota, Antioquia" fill priority className="object-cover opacity-40" sizes="100vw" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #080e0b 0%, rgba(8,14,11,0.5) 50%, rgba(8,14,11,0.3) 100%)" }} />
 
         <div className="absolute top-6 left-6 z-10">
@@ -69,6 +69,11 @@ export default function CampingPlanPareja() {
             Vive la esencia pura del aire libre. Carpa equipada, fogata, hamburguesas
             y estrellas sobre tu cabeza en Girardota, Antioquia.
           </p>
+          <div className="flex items-baseline justify-center gap-2 mb-6">
+            <span className="text-cream-400 text-sm">Desde</span>
+            <span className="font-heading text-3xl font-bold text-gold-500">$150.000</span>
+            <span className="text-cream-400 text-sm">COP / noche</span>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
             <a href={WHATSAPP_CAMPING_URL} target="_blank" rel="noopener noreferrer" onClick={handleWAClick} className="btn-whatsapp w-full sm:w-auto px-8 py-4">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -148,8 +153,7 @@ export default function CampingPlanPareja() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {["/c1.jpg", "/c2.jpg", "/c3.jpg", "/c4.jpg", "/c5.jpg", "/c6.jpg"].map((src, i) => (
             <div key={i} className={`card-dark relative overflow-hidden ${i === 0 ? "col-span-2 md:col-span-1 min-h-[250px]" : "min-h-[180px]"}`}>
-              <div className="absolute inset-0 bg-gradient-to-br from-forest-700 to-forest-900" />
-              <div className="absolute inset-0 bg-cover bg-center opacity-50" style={{ backgroundImage: `url('${src}')` }} />
+              <Image src={src} alt={`Camping Plan Pareja Mirador del Diamante ${i + 1}`} fill className="object-cover opacity-80" sizes="(max-width: 768px) 50vw, 33vw" loading="lazy" />
             </div>
           ))}
         </div>
