@@ -14,64 +14,163 @@ const activities = [
   { icon: "🌿", label: "Senderos ecológicos" },
 ];
 
+const heroFeatures = [
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7 text-gold-500">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 12l8.954-8.955a1.126 1.126 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+      </svg>
+    ),
+    title: "Glamping de lujo",
+    text: "Cama Queen, jacuzzi privado, minibar surtido y dos desayunos incluidos.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7 text-gold-500">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+      </svg>
+    ),
+    title: "Camping Plan Pareja",
+    text: "Fogata, hamaca, cobijas y gastronomía incluida en plena naturaleza.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-7 h-7 text-gold-500">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+      </svg>
+    ),
+    title: "Zona natural completa",
+    text: "Lagos recreativos, senderos ecológicos, cabalgatas y restaurante con vista.",
+  },
+];
+
 export default function Home() {
   return (
     <>
-      {/* NAVBAR */}
-      <nav className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-3 bg-forest-900/90 backdrop-blur-sm border-b border-forest-600/30">
-        <Link href="/">
-          <Image src="/logo.png" alt="Mirador del Diamante" width={70} height={70} className="object-contain" />
-        </Link>
-        <div className="hidden md:flex items-center gap-8">
-          <Link href="#experiencias" className="text-cream-200 hover:text-gold-500 transition-colors text-sm font-medium tracking-wide">
-            Experiencias
-          </Link>
-          <Link href="#zonas" className="text-cream-200 hover:text-gold-500 transition-colors text-sm font-medium tracking-wide">
-            El Lugar
-          </Link>
-          <Link href="#actividades" className="text-cream-200 hover:text-gold-500 transition-colors text-sm font-medium tracking-wide">
-            Actividades
-          </Link>
-          <a href={WHATSAPP_GENERAL_URL} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm px-5 py-2.5">
-            Reservar ahora
-          </a>
-        </div>
-        <a href={WHATSAPP_GENERAL_URL} target="_blank" rel="noopener noreferrer" className="btn-gold text-sm px-4 py-3 md:hidden">
-          Reservar
-        </a>
-      </nav>
-
-      {/* HERO */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-forest-900 via-forest-800 to-forest-700" />
-        <Image src="/hero.jpg" alt="Vista panorámica de Mirador del Diamante, Girardota" fill priority className="object-cover opacity-40" sizes="100vw" />
-        <div className="absolute inset-0" style={{ background: "linear-gradient(to top, #080e0b 0%, rgba(8,14,11,0.4) 50%, transparent 100%)" }} />
-
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
-          <p className="text-gold-500 text-sm font-semibold tracking-[0.25em] uppercase mb-4">
-            Girardota, Antioquia
-          </p>
-          <h1 className="font-heading text-5xl md:text-7xl font-bold text-cream-100 leading-tight mb-6">
-            Escápate a la<br />
-            <span className="text-gold-500">naturaleza</span>
-          </h1>
-          <p className="text-cream-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
-            Glamping de lujo y camping romántico en un refugio rodeado de montañas,
-            lagos y bosques.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/glamping" className="btn-gold text-base px-8 py-4">
-              Ver Glamping
-            </Link>
-            <Link href="/camping-plan-pareja" className="btn-outline text-base px-8 py-4">
-              Ver Camping
-            </Link>
+      {/* HEADER WRAPPER — top bar + pill navbar */}
+      <div className="fixed top-0 left-0 right-0 z-40">
+        {/* TOP CONTACT BAR */}
+        <div className="hidden md:flex items-center justify-between px-8 py-2 bg-forest-950/95 backdrop-blur-sm border-b border-forest-700/30 text-xs text-cream-600">
+          <div className="flex items-center gap-6">
+            <a href="tel:+573005878262" className="flex items-center gap-1.5 hover:text-cream-300 transition-colors">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5"><path fillRule="evenodd" d="M1.5 4.5a3 3 0 013-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 01-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 006.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 011.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 01-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5z" clipRule="evenodd" /></svg>
+              +57 300 587 8262
+            </a>
+          </div>
+          <div className="flex items-center gap-4">
+            <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-cream-300 transition-colors">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              @miradordeldiamante
+            </a>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-cream-600 text-xs tracking-widest">
-          <span>SCROLL</span>
-          <div className="w-px h-8 bg-gold-500/50 animate-pulse" />
+        {/* PILL NAVBAR */}
+        <div className="px-4 md:px-8 py-2">
+          <div className="max-w-6xl mx-auto bg-white rounded-full px-5 py-2.5 shadow-2xl flex items-center justify-between">
+            <Link href="/">
+              <Image src="/logo.png" alt="Mirador del Diamante" width={52} height={52} className="object-contain" />
+            </Link>
+            <div className="hidden md:flex items-center gap-7">
+              <Link href="#experiencias" className="text-forest-600 hover:text-gold-600 transition-colors text-sm font-medium tracking-wide">
+                Experiencias
+              </Link>
+              <Link href="#zonas" className="text-forest-600 hover:text-gold-600 transition-colors text-sm font-medium tracking-wide">
+                El Lugar
+              </Link>
+              <Link href="#actividades" className="text-forest-600 hover:text-gold-600 transition-colors text-sm font-medium tracking-wide">
+                Actividades
+              </Link>
+            </div>
+            <a
+              href={WHATSAPP_GENERAL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-gold-500 hover:bg-gold-400 text-forest-900 text-sm font-bold px-5 py-2.5 rounded-full transition-colors"
+            >
+              Reservar ahora
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* HERO */}
+      <section className="relative min-h-screen">
+        {/* Background fallback */}
+        <div className="absolute inset-0 bg-forest-900" style={{ zIndex: 0 }} />
+        {/* Hero image — img nativo para que backdrop-filter funcione en cards hermanas */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/hero.jpg"
+          alt="Vista panorámica de Mirador del Diamante, Girardota"
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+          style={{ zIndex: 1 }}
+          fetchPriority="high"
+          decoding="async"
+        />
+        {/* Left-to-right dark vignette */}
+        <div className="absolute inset-0" style={{ zIndex: 2, background: "linear-gradient(to right, rgba(8,14,11,0.55) 0%, rgba(8,14,11,0.22) 45%, rgba(8,14,11,0.02) 100%)" }} />
+        {/* Bottom dark gradient for cards readability */}
+        <div className="absolute inset-0" style={{ zIndex: 2, background: "linear-gradient(to top, rgba(8,14,11,0.6) 0%, rgba(8,14,11,0.15) 15%, transparent 35%)" }} />
+
+        {/* Left-aligned hero content */}
+        <div className="relative z-10 flex flex-col justify-center min-h-screen px-6 md:px-16 pt-64 pb-32 md:pt-36 md:pb-60">
+          <div className="max-w-2xl">
+            <p className="text-white text-xs font-bold tracking-[0.3em] uppercase mb-5">
+              Girardota, Antioquia
+            </p>
+            <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold text-cream-100 leading-[1.1] mb-6">
+              La ciudad, vista<br />
+              desde arriba,<br />
+              <span className="text-gold-500">hace menos ruido</span>
+            </h1>
+            <p className="text-white/90 text-lg max-w-lg mb-10 leading-relaxed">
+              Glamping de lujo y camping bajo las estrellas, rodeado de montañas, lagos y bosques en Girardota, Antioquia.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/glamping"
+                className="inline-flex items-center justify-center gap-2 bg-gold-500 hover:bg-gold-400 text-forest-900 font-bold px-8 py-4 rounded-full text-sm tracking-wide transition-all hover:-translate-y-0.5"
+              >
+                Ver Glamping
+              </Link>
+              <Link
+                href="/camping-plan-pareja"
+                className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/30 font-bold px-8 py-4 rounded-full text-sm tracking-wide transition-all hover:-translate-y-0.5 backdrop-blur-sm"
+              >
+                Ver Camping
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* BOTTOM FEATURE CARDS — desktop only */}
+        <div className="absolute bottom-0 left-0 right-0 z-20 hidden md:block px-8 md:px-16 pb-8">
+          <p className="text-cream-500 text-xs tracking-[0.25em] uppercase mb-4">
+            En Mirador del Diamante:
+          </p>
+          <div className="flex gap-3">
+            {heroFeatures.map((feat, i) => (
+              <div
+                key={i}
+                className="flex-1 p-5"
+                style={{
+                  position: "relative",
+                  zIndex: 1,
+                  background: "rgba(255, 255, 255, 0.08)",
+                  backdropFilter: "blur(16px)",
+                  WebkitBackdropFilter: "blur(16px)",
+                  border: "0.5px solid rgba(255, 255, 255, 0.18)",
+                  borderRadius: "12px",
+                }}
+              >
+                <div className="mb-3 [&_svg]:text-[#D4A042] [&_svg]:stroke-[#D4A042]">{feat.icon}</div>
+                <p className="text-sm font-semibold mb-1" style={{ color: "#ffffff" }}>{feat.title}</p>
+                <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>{feat.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
